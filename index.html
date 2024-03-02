@@ -16,18 +16,19 @@
             return response.json();
         })
         .then(function (result) {
-            jsonData = result;
-        });
-
-        // traverse json data and find min click count
-        for(let url in jsonData){
-            if(jsonData[url] < min){
-                min = jsonData[url];
-                targetUrl = url;
+            // traverse json data and find min click count
+            for(let url in result){
+                if(result[url] < min){
+                    min = result[url];
+                    targetUrl = url;
+                }
             }
-        }
-        jsonData[targetUrl]++;
-        console.log(jsonData, targetUrl);
+
+            // click count ++
+            result[targetUrl]++;
+
+            console.log(result);
+        });
 
         // write file and redirect
         // fetch('./url.json')
