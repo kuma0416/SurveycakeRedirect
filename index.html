@@ -27,16 +27,17 @@
             }
         }
         jsonData[targetUrl]++;
+        console.log(jsonData, targetUrl);
 
         // write file and redirect
-        fetch('./url.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (result) {
-            data[targetUrl] = jsonData[targetUrl];
-        });
-        location.href = targetUrl;
+        // fetch('./url.json')
+        // .then(function (response) {
+        //     return response.json();
+        // })
+        // .then(function (result) {
+        //     data[targetUrl] = jsonData[targetUrl];
+        // });
+        // location.href = targetUrl;
     </script>
 </body>
 </html>
