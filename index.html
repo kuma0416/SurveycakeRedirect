@@ -21,6 +21,7 @@
 
         // traverse json data and find min click count
         for(let url in jsonData){
+            console.log(url);
             if(jsonData[url] < min){
                 min = jsonData[url];
                 targetUrl = url;
