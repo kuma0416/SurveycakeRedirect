@@ -5,13 +5,38 @@
 </head>
 <body>
     <script>
+        // declare the variable
+        let jsonData = {};
+        let minClickCount = 999999;
+        let targetUrl = "";
+
+        // read json file
         fetch('./url.json')
         .then(function (response) {
             return response.json();
         })
         .then(function (result) {
-            console.log(result);
+            jsonData = result;
         });
+
+        // traverse json data and find min click count
+        for(let url in jsonData){
+            if(jsonData[url] < min){
+                min = jsonData[url];
+                targetUrl = url;
+            }
+        }
+        jsonData[targetUrl]++;
+
+        // write file and redirect
+        fetch('./url.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (result) {
+            data[targetUrl] = jsonData[targetUrl];
+        });
+        location.href = targetUrl;
     </script>
 </body>
 </html>
