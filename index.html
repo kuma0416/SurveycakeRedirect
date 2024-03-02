@@ -18,8 +18,8 @@
         .then(function (result) {
             // traverse json data and find min click count
             for(let url in result){
-                if(result[url] < min){
-                    min = result[url];
+                if(result[url] < minClickCount){
+                    minClickCount = result[url];
                     targetUrl = url;
                 }
             }
