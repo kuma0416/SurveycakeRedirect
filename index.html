@@ -6,39 +6,25 @@
 <body>
     <script>
         // declare the variable
-        let jsonData = {};
+        let jsonData = {
+            "https://www.google.com.tw/?hl=zh_TW": 0,
+            "https://www.facebook.com/": 0
+        };
         let minClickCount = 999999;
         let targetUrl = "";
 
-        // read json file
-        fetch('./url.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (result) {
-            // traverse json data and find min click count
-            for(let url in result){
-                if(result[url] < minClickCount){
-                    minClickCount = result[url];
-                    targetUrl = url;
-                }
+        // traverse json data and find min click count
+        for(let url in jsonData){
+            if(jsonData[url] < minClickCount){
+                minClickCount = jsonData[url];
+                targetUrl = url;
             }
+        }
 
-            // click count ++
-            result[targetUrl]++;
+        // click count ++
+        jsonData[targetUrl]++;
 
-            location.href = targetUrl;
-        });
-
-        // write file and redirect
-        // fetch('./url.json')
-        // .then(function (response) {
-        //     return response.json();
-        // })
-        // .then(function (result) {
-        //     data[targetUrl] = jsonData[targetUrl];
-        // });
-        // location.href = targetUrl;
+        location.href = targetUrl;
     </script>
 </body>
 </html>
