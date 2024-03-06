@@ -6,29 +6,40 @@
 <body>
     <script>
         // declare the variable
-        let jsonData = {};
-        let minClickCount = 999999;
         let targetUrl = "";
+        let targetUrlList = ["https://www.google.com.tw/?hl=zh_TW", "https://www.facebook.com/"]
+        let ans = 0;
 
-        // read json file
-        fetch('./url.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (result) {
-            // traverse json data and find min click count
-            for(let url in result){
-                if(result[url] < minClickCount){
-                    minClickCount = result[url];
-                    targetUrl = url;
-                }
-            }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
 
-            // click count ++
-            result[targetUrl]++;
+        ans = getRandomInt(99);
+        if(ans%2 == 0){
+            location.href = targetUrlList[0];
+        } else {
+            location.href = targetUrlList[1];
+        }
 
-            location.href = targetUrl;
-        });
+        // // read json file
+        // fetch('./url.json')
+        // .then(function (response) {
+        //     return response.json();
+        // })
+        // .then(function (result) {
+        //     // traverse json data and find min click count
+        //     for(let url in result){
+        //         if(result[url] < minClickCount){
+        //             minClickCount = result[url];
+        //             targetUrl = url;
+        //         }
+        //     }
+
+        //     // click count ++
+        //     result[targetUrl]++;
+
+        //     location.href = targetUrl;
+        // });
 
         // write file and redirect
         // fetch('./url.json')
