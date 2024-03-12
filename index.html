@@ -6,20 +6,8 @@
 <body>
     <script>
         // declare the variable
-        let targetUrl = "";
-        let targetUrlList = ["https://www.surveycake.com/s/BdRar", "https://www.surveycake.com/s/p0zMr"]
-        let ans = 0;
-
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }
-
-        ans = getRandomInt(99);
-        if(ans%2 == 0){
-            location.href = targetUrlList[0];
-        } else {
-            location.href = targetUrlList[1];
-        }
+        let targetUrlList = ["https://www.surveycake.com/s/BdRar"]
+        location.href = targetUrlList[0];
 
         // // read json file
         // fetch('./url.json')
